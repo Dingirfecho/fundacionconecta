@@ -269,6 +269,7 @@ function HeaderExt({ active, onJump }) {
   const links = [
     ['manifiesto', 'Por qué'],
     ['programas', 'Programas'],
+    ['__page__shambhala', 'Shambhala'],
     ['__page__mision', 'Misión'],
     ['participar', 'Participar'],
   ];

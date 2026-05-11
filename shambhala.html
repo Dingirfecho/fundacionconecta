@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shambhala Patagonia · Fundación Conecta</title>
+<meta name="description" content="Polo espiritual, cultural y tecnológico en Esquel: la propuesta de Fundación Conecta para posicionar a la Patagonia como la primera capital de peregrinaje budista de las Américas.">
+<link rel="icon" href="assets/logo-mark-square.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+<link rel="stylesheet" href="styles/extra.css">
+<style>
+  /* ===== Shambhala Patagonia — página larga editorial ===== */
+  .sh-hero{background:var(--ink);color:white;padding:96px 32px 88px;position:relative;overflow:hidden}
+  .sh-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 90% 30%,rgba(201,61,27,.22),transparent 60%),radial-gradient(ellipse 40% 60% at 0% 100%,rgba(26,122,106,.16),transparent 55%)}
+  .sh-hero-inner{max-width:980px;margin:0 auto;position:relative}
+  .sh-back{font-family:var(--font-sans);font-size:.78rem;font-weight:700;color:rgba(255,255,255,.6);text-decoration:none;letter-spacing:.04em;display:inline-flex;align-items:center;gap:6px;margin-bottom:24px;transition:color .15s}
+  .sh-back:hover{color:var(--accent2)}
+  .sh-kicker{font-family:var(--font-sans);font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+  .sh-kicker > span:empty:first-child{display:inline-block;width:22px;height:2px;background:var(--accent2);border-radius:1px}
+  .sh-hero h1{font-family:var(--font-serif);font-size:clamp(2.6rem,6vw,4.2rem);font-weight:700;line-height:1.07;letter-spacing:-.025em;margin:0 0 24px;color:white;max-width:880px}
+  .sh-hero h1 em{font-style:italic;color:#FBBF7A}
+  .sh-hero .lead{font-family:var(--font-serif);font-size:1.18rem;color:rgba(255,255,255,.8);max-width:680px;line-height:1.65;margin:0 0 32px}
+  .sh-hero-meta{display:flex;gap:32px;flex-wrap:wrap;margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12)}
+  .sh-hero-meta div{font-family:var(--font-sans)}
+  .sh-hero-meta .k{font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:6px}
+  .sh-hero-meta .v{font-size:.95rem;font-weight:700;color:white}
+
+  /* Bloques de contenido */
+  .sh-section{max-width:1080px;margin:96px auto 0;padding:0 32px}
+  .sh-section.first{margin-top:80px}
+  .sh-eyebrow{font-family:var(--font-sans);font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+  .sh-eyebrow::before{content:'';width:22px;height:2px;background:var(--accent);border-radius:1px}
+  .sh-h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.6rem);font-weight:700;line-height:1.18;letter-spacing:-.018em;color:var(--ink);margin:0 0 18px;max-width:780px}
+  .sh-h2 em{font-style:italic;color:var(--accent)}
+  .sh-intro{font-family:var(--font-serif);font-size:1.08rem;color:var(--ink2);line-height:1.72;max-width:680px;margin:0 0 32px}
+
+  /* Two-col: text + stats */
+  .sh-2col{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start;margin-top:24px}
+  .sh-2col p{font-family:var(--font-serif);font-size:1.02rem;color:var(--ink2);line-height:1.78;margin:0 0 14px}
+  .sh-2col p strong{color:var(--ink)}
+  .sh-statbox{background:var(--paper2);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:18px}
+  .sh-statbox .row{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:14px;border-bottom:1px solid var(--border)}
+  .sh-statbox .row:last-child{border-bottom:0;padding-bottom:0}
+  .sh-statbox .k{font-family:var(--font-sans);font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)}
+  .sh-statbox .v{font-family:var(--font-serif);font-size:1.05rem;font-weight:700;color:var(--ink)}
+
+  /* Hero stat (gigante) */
+  .sh-bignum{background:var(--ink);color:white;border-radius:16px;padding:64px 56px;text-align:center;margin-top:24px;position:relative;overflow:hidden}
+  .sh-bignum::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 40% 70% at 50% 0%,rgba(240,165,0,.12),transparent 65%)}
+  .sh-bignum-k{position:relative;font-family:var(--font-sans);font-size:.74rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);margin-bottom:16px}
+  .sh-bignum-v{position:relative;font-family:var(--font-serif);font-size:clamp(5rem,12vw,8rem);font-weight:700;line-height:.95;letter-spacing:-.03em;color:white;margin:0 0 10px}
+  .sh-bignum-v em{font-style:italic;color:var(--accent2);font-size:.7em;margin-left:8px}
+  .sh-bignum-l{position:relative;font-family:var(--font-sans);font-size:.85rem;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px}
+  .sh-bignum-p{position:relative;font-family:var(--font-serif);font-size:1.02rem;color:rgba(255,255,255,.78);max-width:600px;margin:0 auto;line-height:1.65}
+  .sh-bignum-src{position:relative;margin-top:18px;font-family:var(--font-sans);font-size:.72rem;color:rgba(255,255,255,.4);letter-spacing:.04em}
+
+  /* El circuito — 4 templos */
+  .sh-circuit{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+  .sh-temple{background:white;border:1px solid var(--border);border-radius:12px;padding:24px 22px;display:flex;flex-direction:column;gap:8px;transition:all .2s}
+  .sh-temple:hover{border-color:var(--accent);box-shadow:0 4px 14px rgba(201,61,27,.08)}
+  .sh-temple-n{font-family:var(--font-sans);font-size:.66rem;font-weight:800;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
+  .sh-temple h4{font-family:var(--font-serif);font-size:1.2rem;font-weight:700;color:var(--ink);margin:2px 0 4px;line-height:1.2}
+  .sh-temple p{font-family:var(--font-serif);font-size:.92rem;color:var(--ink2);line-height:1.55;margin:0}
+
+  /* Anillo económico — lista */
+  .sh-ring{margin-top:18px;background:var(--paper2);border:1px solid var(--border);border-radius:12px;padding:24px 28px}
+  .sh-ring-t{font-family:var(--font-sans);font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+  .sh-ring ul{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 24px;margin:0;padding:0;list-style:none}
+  .sh-ring li{font-family:var(--font-serif);font-size:.98rem;color:var(--ink);padding-left:20px;position:relative;line-height:1.55}
+  .sh-ring li::before{content:'·';color:var(--accent);font-weight:800;position:absolute;left:6px;top:-2px;font-size:1.4rem;line-height:1}
+
+  /* 5 motores — grid */
+  .sh-motors{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:24px}
+  .sh-motor{background:white;border:1.5px solid var(--border);border-radius:12px;padding:22px 20px;display:flex;flex-direction:column;gap:8px}
+  .sh-motor-n{font-family:var(--font-serif);font-style:italic;font-size:1.4rem;font-weight:700;color:var(--accent);line-height:1;letter-spacing:-.02em}
+  .sh-motor h4{font-family:var(--font-serif);font-size:1.05rem;font-weight:700;color:var(--ink);margin:6px 0 0;line-height:1.25}
+  .sh-motor p{font-family:var(--font-serif);font-size:.88rem;color:var(--ink2);line-height:1.55;margin:4px 0 0}
+
+  /* Motor block — card grande */
+  .sh-motor-block{background:white;border:1px solid var(--border);border-radius:16px;padding:48px 56px;margin-top:24px}
+  .sh-motor-block + .sh-motor-block{margin-top:18px}
+  .sh-motor-head{display:flex;align-items:baseline;gap:18px;margin-bottom:8px}
+  .sh-motor-tag{font-family:var(--font-sans);font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);padding:4px 12px;background:rgba(201,61,27,.08);border-radius:100px}
+  .sh-motor-head h3{font-family:var(--font-serif);font-size:1.7rem;font-weight:700;color:var(--ink);margin:0;letter-spacing:-.01em;line-height:1.2}
+  .sh-motor-head h3 em{font-style:italic;color:var(--accent)}
+  .sh-motor-lead{font-family:var(--font-serif);font-size:1.05rem;color:var(--ink2);line-height:1.7;margin:0 0 22px;max-width:680px}
+  .sh-motor-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 28px;margin-top:8px}
+  .sh-motor-item{padding-left:20px;border-left:2px solid var(--paper3)}
+  .sh-motor-item .num{font-family:var(--font-sans);font-size:.66rem;font-weight:800;color:var(--accent);letter-spacing:.12em;margin-bottom:4px}
+  .sh-motor-item h5{font-family:var(--font-serif);font-size:1.1rem;font-weight:700;color:var(--ink);margin:0 0 6px;line-height:1.25}
+  .sh-motor-item p{font-family:var(--font-serif);font-size:.94rem;color:var(--ink2);line-height:1.6;margin:0}
+  .sh-motor-stats{display:flex;gap:32px;margin:18px 0 0;padding-top:18px;border-top:1px solid var(--border);flex-wrap:wrap}
+  .sh-motor-stats div .k{font-family:var(--font-sans);font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:4px}
+  .sh-motor-stats div .v{font-family:var(--font-serif);font-size:1.08rem;font-weight:700;color:var(--ink)}
+
+  /* Tabla quién paga */
+  .sh-table{margin-top:24px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:white}
+  .sh-row{display:grid;grid-template-columns:1.1fr 2fr .7fr;gap:24px;padding:22px 28px;border-bottom:1px solid var(--border);align-items:start}
+  .sh-row:last-child{border-bottom:0}
+  .sh-row.head{background:var(--paper2);padding:14px 28px}
+  .sh-row.head div{font-family:var(--font-sans);font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+  .sh-row .a{font-family:var(--font-serif);font-size:1.02rem;font-weight:700;color:var(--ink);line-height:1.3}
+  .sh-row .a span{display:block;font-family:var(--font-sans);font-size:.78rem;font-weight:600;color:var(--ink3);margin-top:4px;letter-spacing:0;text-transform:none}
+  .sh-row .b{font-family:var(--font-serif);font-size:.95rem;color:var(--ink2);line-height:1.6}
+  .sh-row .c{font-family:var(--font-sans);font-size:.85rem;font-weight:800;color:var(--teal);text-align:right;letter-spacing:.02em}
+  .sh-row .c.warn{color:var(--accent)}
+
+  /* Pedido — 3 boxes */
+  .sh-asks{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+  .sh-ask{background:var(--ink);color:white;border-radius:12px;padding:28px 26px;display:flex;flex-direction:column;gap:8px;position:relative;overflow:hidden}
+  .sh-ask::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,61,27,.16),transparent 70%);pointer-events:none}
+  .sh-ask .n{font-family:var(--font-serif);font-style:italic;font-size:2.2rem;font-weight:700;color:var(--accent2);line-height:1;letter-spacing:-.02em;position:relative}
+  .sh-ask h4{font-family:var(--font-serif);font-size:1.2rem;font-weight:700;margin:6px 0 0;color:white;position:relative;line-height:1.25}
+  .sh-ask p{font-family:var(--font-serif);font-size:.94rem;color:rgba(255,255,255,.72);line-height:1.6;margin:0;position:relative}
+
+  /* Riesgo dos columnas */
+  .sh-risk{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+  .sh-risk-card{border-radius:12px;padding:32px 32px;display:flex;flex-direction:column;gap:14px}
+  .sh-risk-card.no{background:var(--paper2);border:1px solid var(--border);color:var(--ink)}
+  .sh-risk-card.yes{background:linear-gradient(135deg,#1A7A6A,#0C4A3E);color:white;border:1px solid #0C4A3E}
+  .sh-risk-card .t{font-family:var(--font-sans);font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
+  .sh-risk-card h4{font-family:var(--font-serif);font-size:1.45rem;font-weight:700;margin:0;line-height:1.2}
+  .sh-risk-card p{font-family:var(--font-serif);font-size:.98rem;line-height:1.65;margin:0;opacity:.85}
+  .sh-risk-stats{display:flex;gap:24px;margin-top:8px;padding-top:14px;border-top:1px solid rgba(255,255,255,.15)}
+  .sh-risk-card.no .sh-risk-stats{border-top-color:var(--border)}
+  .sh-risk-stats div .k{font-family:var(--font-sans);font-size:.64rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;opacity:.55;margin-bottom:3px}
+  .sh-risk-stats div .v{font-family:var(--font-serif);font-size:1.08rem;font-weight:700}
+
+  /* Para Esquel — 3 col */
+  .sh-comm{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+  .sh-comm-card{background:white;border:1px solid var(--border);border-radius:12px;padding:22px 24px;display:flex;flex-direction:column;gap:6px}
+  .sh-comm-tag{font-family:var(--font-sans);font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+  .sh-comm-card h4{font-family:var(--font-serif);font-size:1.1rem;font-weight:700;color:var(--ink);margin:4px 0 4px;line-height:1.25}
+  .sh-comm-card p{font-family:var(--font-serif);font-size:.94rem;color:var(--ink2);line-height:1.6;margin:0}
+
+  /* Cronograma */
+  .sh-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:24px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:white}
+  .sh-phase{padding:24px 26px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:8px}
+  .sh-phase:last-child{border-right:0}
+  .sh-phase-when{font-family:var(--font-sans);font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);background:rgba(201,61,27,.08);padding:4px 10px;border-radius:100px;align-self:flex-start}
+  .sh-phase h4{font-family:var(--font-serif);font-size:1.15rem;font-weight:700;color:var(--ink);margin:6px 0 4px;line-height:1.25}
+  .sh-phase p{font-family:var(--font-serif);font-size:.92rem;color:var(--ink2);line-height:1.55;margin:0}
+
+  /* CTA final con pregunta */
+  .sh-close{margin:96px 0 0;padding:0 32px}
+  .sh-close-inner{max-width:1080px;margin:0 auto;background:var(--ink);color:white;border-radius:16px;padding:80px 64px;text-align:center;position:relative;overflow:hidden}
+  .sh-close-inner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 100%,rgba(201,61,27,.22),transparent 60%)}
+  .sh-close-inner > *{position:relative}
+  .sh-close .k{font-family:var(--font-sans);font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);margin-bottom:18px}
+  .sh-close h2{font-family:var(--font-serif);font-size:clamp(1.8rem,3.2vw,2.4rem);font-weight:700;line-height:1.28;color:white;margin:0 0 24px;letter-spacing:-.012em;max-width:760px;margin-left:auto;margin-right:auto}
+  .sh-close h2 em{font-style:italic;color:var(--accent2)}
+
+  @media(max-width:980px){
+    .sh-2col{grid-template-columns:1fr;gap:24px}
+    .sh-circuit{grid-template-columns:1fr 1fr}
+    .sh-motors{grid-template-columns:1fr 1fr}
+    .sh-motor-grid{grid-template-columns:1fr}
+    .sh-asks,.sh-comm,.sh-timeline{grid-template-columns:1fr}
+    .sh-row{grid-template-columns:1fr;gap:8px}
+    .sh-row.head{display:none}
+    .sh-row .c{text-align:left}
+    .sh-risk{grid-template-columns:1fr}
+    .sh-phase{border-right:0;border-bottom:1px solid var(--border)}
+    .sh-phase:last-child{border-bottom:0}
+    .sh-motor-block{padding:32px 28px}
+    .sh-close-inner{padding:56px 32px}
+    .sh-ring ul{grid-template-columns:1fr}
+  }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="ih">
+  <a href="index.html" class="ih-brand">
+    <span class="ih-mark">FC</span>
+    <span>Fundación <strong>Conecta</strong></span>
+  </a>
+  <nav class="ih-nav">
+    <a href="index.html#manifiesto">Por qué</a>
+    <a href="index.html#programas">Programas</a>
+    <a href="shambhala.html" class="is-active">Shambhala</a>
+    <a href="mision.html">Misión</a>
+    <a href="index.html#participar">Participar</a>
+  </nav>
+  <a href="index.html#participar" class="ih-cta">Sumate</a>
+</header>
+
+<section class="sh-hero">
+  <div class="sh-hero-inner">
+    <a href="index.html" class="sh-back">← Volver al sitio</a>
+    <div class="sh-kicker"><span></span> Programa Territorio · Esquel, Chubut</div>
+    <h1>Shambhala Patagonia.<br>Un polo espiritual, cultural y <em>tecnológico</em> en Esquel.</h1>
+    <p class="lead">
+      Una propuesta para posicionar a Esquel como la primera capital de peregrinaje espiritual,
+      académico y tecnológico de las Américas. No un templo: un circuito.
+    </p>
+    <div class="sh-hero-meta">
+      <div><div class="k">Ubicación</div><div class="v">Esquel · Chubut</div></div>
+      <div><div class="k">Horizonte</div><div class="v">Fase 1 en 18–24 meses</div></div>
+      <div><div class="k">Costo municipal</div><div class="v">≈ 0 · sin caja</div></div>
+      <div><div class="k">Empleo directo</div><div class="v">Hasta 1.000 puestos</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 · EL PROBLEMA -->
+<section class="sh-section first">
+  <div class="sh-eyebrow">01 · El problema</div>
+  <h2 class="sh-h2">Una marca turística construida en décadas, <em>perdida en una temporada</em>.</h2>
+  <div class="sh-2col">
+    <div>
+      <p>
+        Los incendios no solo devastaron hectáreas. Devastaron una <strong>marca turística que tardó
+        décadas en construirse</strong>. Y con el turismo bajó la cadena completa: gastronomía,
+        hotelería, comercio, transporte, artesanos.
+      </p>
+      <p>
+        La pregunta que todos se hacen es: <em>¿cómo traemos turismo nuevo cuando el paisaje que
+        vendíamos ya no es el mismo?</em>
+      </p>
+      <p>
+        Nuestra hipótesis es contraintuitiva. La respuesta no está en reconstruir lo que se perdió.
+        Está en <strong>construir algo que hoy no existe en toda Sudamérica</strong>.
+      </p>
+    </div>
+    <aside class="sh-statbox">
+      <div class="row"><span class="k">Cadena afectada</span><span class="v">Hotelería · gastronomía</span></div>
+      <div class="row"><span class="k">Efecto mediático</span><span class="v">Marca Patagonia</span></div>
+      <div class="row"><span class="k">Reconstruir lo perdido</span><span class="v">No alcanza</span></div>
+      <div class="row"><span class="k">Ventana de acción</span><span class="v">Ahora</span></div>
+    </aside>
+  </div>
+</section>
+
+<!-- 02 · LA OPORTUNIDAD -->
+<section class="sh-section">
+  <div class="sh-eyebrow">02 · La oportunidad</div>
+  <h2 class="sh-h2">Bodh Gaya, India: una ciudad <em>sin atractivos naturales</em> que recibe más visitantes que muchas capitales.</h2>
+  <div class="sh-2col">
+    <div>
+      <p>
+        Bodh Gaya es pequeña, en el estado de Bihar. <strong>Sin playas, sin montañas, sin lagos</strong>.
+        Y sin embargo recibe más de 3 millones de visitantes por año. Es Patrimonio Mundial de la UNESCO
+        desde el siglo III a.C.
+      </p>
+      <p>
+        No funciona por una atracción: funciona por <em>un circuito</em>. Cada escuela budista
+        construyó su propio templo —japonés, tibetano, tailandés, coreano, butanés— con
+        financiamiento descentralizado. La carga local es prácticamente nula. La ciudad vive del
+        flujo permanente.
+      </p>
+      <p>
+        Cuatro elementos —multi-templo, acceso libre, financiamiento descentralizado, economía de
+        servicios—. Ninguno depende de la geografía. <strong>Todos son trasplantables</strong>.
+      </p>
+    </div>
+    <aside class="sh-statbox">
+      <div class="row"><span class="k">UNESCO</span><span class="v">Patrimonio Mundial</span></div>
+      <div class="row"><span class="k">Desde</span><span class="v">Siglo III a.C.</span></div>
+      <div class="row"><span class="k">Visitantes / año</span><span class="v">+3 millones</span></div>
+      <div class="row"><span class="k">Templos nacionales</span><span class="v">+12</span></div>
+    </aside>
+  </div>
+</section>
+
+<!-- TURISMO BIENESTAR — bignum -->
+<section class="sh-section">
+  <div class="sh-eyebrow">02 · Mercado global</div>
+  <h2 class="sh-h2">Turismo de bienestar: <em>una de las grandes corrientes</em> del turismo del siglo XXI.</h2>
+  <div class="sh-bignum">
+    <div class="sh-bignum-k">Mercado global anual</div>
+    <div class="sh-bignum-v">USD 817 <em>B</em></div>
+    <div class="sh-bignum-l">Ochocientos diecisiete mil millones de dólares</div>
+    <p class="sh-bignum-p">
+      No es un nicho: es una de las corrientes con tasas de crecimiento sostenidas por encima del
+      turismo convencional. A esto se suman <strong style="color:var(--accent2)">535 millones de
+      practicantes budistas</strong> en el mundo —una comunidad con tradición milenaria de
+      peregrinaje— más yoga, mindfulness y turismo espiritual no religioso.
+    </p>
+    <div class="sh-bignum-src">Fuente: Global Wellness Institute · estimación 2024</div>
+  </div>
+</section>
+
+<!-- 0 polos -->
+<section class="sh-section">
+  <div class="sh-eyebrow">02 · El vacío</div>
+  <h2 class="sh-h2">Polos de peregrinaje budista en Sudamérica: <em>cero</em>.</h2>
+  <p class="sh-intro">
+    El que llega primero se queda con esa marca para siempre. La pregunta no es <em>si</em> va a
+    suceder. Es <strong>quién va a hacerlo, y dónde</strong>. Esquel tiene una combinación que
+    ninguna otra ciudad del continente reúne: aeropuerto, Patagonia y ventana de primer movimiento.
+  </p>
+</section>
+
+<!-- 03 · LA PROPUESTA -->
+<section class="sh-section">
+  <div class="sh-eyebrow">03 · La propuesta</div>
+  <h2 class="sh-h2">No es un parque temático. Es un <em>diálogo</em> con la Patagonia.</h2>
+  <p class="sh-intro">
+    Inscribimos el polo dentro de la tradición de Chubut: lo conectamos con los espíritus del lugar,
+    con la cosmovisión patagónica, con los oficios y materiales locales. No es un trasplante. Es
+    una conversación entre tradiciones milenarias.
+  </p>
+
+  <div class="sh-circuit">
+    <article class="sh-temple">
+      <div class="sh-temple-n">Templo · 01</div>
+      <h4>Vajrayana</h4>
+      <p>Ruedas de mantras, banderas de oración. Linaje tibetano.</p>
+    </article>
+    <article class="sh-temple">
+      <div class="sh-temple-n">Templo · 02</div>
+      <h4>Zen japonés</h4>
+      <p>Jardines secos, ceremonia del té. Práctica silenciosa.</p>
+    </article>
+    <article class="sh-temple">
+      <div class="sh-temple-n">Templo · 03</div>
+      <h4>Theravada tailandés</h4>
+      <p>Estupas doradas, ofrendas, sangha monástica.</p>
+    </article>
+    <article class="sh-temple">
+      <div class="sh-temple-n">Templo · 04</div>
+      <h4>Coreano / Chino</h4>
+      <p>Arquitectura hanok, retiros silenciosos prolongados.</p>
+    </article>
+  </div>
+
+  <div class="sh-ring">
+    <div class="sh-ring-t">Anillo económico alrededor del circuito</div>
+    <ul>
+      <li>Feria artesanal permanente</li>
+      <li>Gastronomía local + asiática</li>
+      <li>Hospedaje y centros de retiro</li>
+      <li>Estudio para podcasts y transmisiones</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 5 MOTORES — overview -->
+<section class="sh-section">
+  <div class="sh-eyebrow">04 · El ecosistema</div>
+  <h2 class="sh-h2">Cinco motores. Un mismo <em>ecosistema</em>.</h2>
+  <p class="sh-intro">
+    Los templos atraen el flujo. El Centro y el Lab dan profundidad. Los retiros sostienen la
+    operación. El merchandise y la Coalición exportan valor. <strong>Ninguno implica caja
+    municipal</strong>.
+  </p>
+  <div class="sh-motors">
+    <article class="sh-motor"><div class="sh-motor-n">01</div><h4>Centro de Estudios</h4><p>La primera universidad budista del hemisferio sur.</p></article>
+    <article class="sh-motor"><div class="sh-motor-n">02</div><h4>Kalachakra Lab</h4><p>AI contemplativa, residencias técnicas, capital cripto/IA.</p></article>
+    <article class="sh-motor"><div class="sh-motor-n">03</div><h4>Centros de Retiro</h4><p>Hermitages, centros medianos y mayor. Flujo recurrente.</p></article>
+    <article class="sh-motor"><div class="sh-motor-n">04</div><h4>Industria de Merchandise</h4><p>Producción y exportación a las Américas.</p></article>
+    <article class="sh-motor"><div class="sh-motor-n">05</div><h4>Coalición Patagónica</h4><p>Vidriera para las marcas premium argentinas.</p></article>
+  </div>
+</section>
+
+<!-- MOTOR 01 -->
+<section class="sh-section">
+  <div class="sh-eyebrow">Motor 01 · Centro de estudios</div>
+  <h2 class="sh-h2">La primera <em>universidad budista</em> del hemisferio sur.</h2>
+  <div class="sh-motor-block">
+    <div class="sh-motor-head">
+      <span class="sh-motor-tag">La pieza que legitima</span>
+      <h3>Tres ejes: filosofía, tradiciones vivas, diálogo con las ciencias.</h3>
+    </div>
+    <p class="sh-motor-lead">
+      Una institución académica especializada que articula filosofía budista (lógica, epistemología,
+      madhyamaka), tradiciones contemplativas vivas (Vajrayana, Zen, Theravada, Bön) y diálogo
+      budismo–ciencias. Sin él, el polo es destino. Con él, es <em>referencia</em>.
+    </p>
+    <div class="sh-motor-grid">
+      <div class="sh-motor-item"><div class="num">01</div><h5>Programas académicos</h5><p>Diplomaturas, maestría con universidades aliadas, programas de verano internacionales.</p></div>
+      <div class="sh-motor-item"><div class="num">02</div><h5>Investigación y publicaciones</h5><p>Revista Sonam como medio oficial. Traducciones del tibetano, sánscrito y chino al español.</p></div>
+      <div class="sh-motor-item"><div class="num">03</div><h5>Eventos académicos</h5><p>Jornadas Budistas anuales, congresos internacionales, coloquios con universidades asiáticas.</p></div>
+      <div class="sh-motor-item"><div class="num">04</div><h5>Formación de maestros locales</h5><p>Programa estructurado para practicantes latinoamericanos sin tener que viajar a Asia.</p></div>
+    </div>
+    <div class="sh-motor-stats">
+      <div><div class="k">Modelo</div><div class="v">Naropa + Rangjung</div></div>
+      <div><div class="k">Idiomas</div><div class="v">ES · EN · PT</div></div>
+      <div><div class="k">Base existente</div><div class="v">Revista Sonam</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MOTOR 02 -->
+<section class="sh-section">
+  <div class="sh-eyebrow">Motor 02 · Kalachakra Lab</div>
+  <h2 class="sh-h2">Las naciones budistas son las <em>potencias tecnológicas</em>. El Lab capitaliza esa afinidad.</h2>
+  <div class="sh-motor-block">
+    <div class="sh-motor-head">
+      <span class="sh-motor-tag">Extensión de Conecta</span>
+      <h3>No competimos con Bangalore. Ofrecemos algo <em>distinto</em>.</h3>
+    </div>
+    <p class="sh-motor-lead">
+      El Lab no es una idea: es una extensión natural de Conecta, que ya opera en estrategia de IA
+      empresarial, publicó el framework <strong>AI-Q</strong> y tiene red con Conicet, Tibetan
+      Research Center y Vajrakula. Nace con base institucional verificable.
+    </p>
+    <div class="sh-motor-grid">
+      <div class="sh-motor-item"><div class="num">01</div><h5>AI contemplativa</h5><p>Investigación y consultoría en mindfulness, neurociencia y modelos de IA. Conecta aporta metodología; los templos, linaje.</p></div>
+      <div class="sh-motor-item"><div class="num">02</div><h5>Residencias técnicas</h5><p>Programa <em>monastic sabbatical</em> de 3 a 12 meses para investigadores, ingenieros y founders asiáticos en la Patagonia.</p></div>
+      <div class="sh-motor-item"><div class="num">03</div><h5>Co-creación Argentina–Asia</h5><p>Proyectos con Conicet, UBA, ITBA y socios asiáticos en agritech andina, robótica educativa, energía limpia.</p></div>
+      <div class="sh-motor-item"><div class="num">04</div><h5>Capital cripto/IA</h5><p>Convenciones globales, retiros ejecutivos para fondos y DAOs. Alternativa con base contemplativa real a Lisboa, Bali, Dubai.</p></div>
+    </div>
+    <div class="sh-motor-stats">
+      <div><div class="k">I+D Asia budista</div><div class="v">~40% del gasto global</div></div>
+      <div><div class="k">Unicornios Asia</div><div class="v">+400 empresas</div></div>
+      <div><div class="k">Naciones socias</div><div class="v">JP · KR · CN · IN</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MOTOR 03 -->
+<section class="sh-section">
+  <div class="sh-eyebrow">Motor 03 · Centros de retiro</div>
+  <h2 class="sh-h2">Tres tipologías. Una capacidad <em>única en Sudamérica</em>.</h2>
+  <div class="sh-motor-block">
+    <div class="sh-motor-head">
+      <span class="sh-motor-tag">Pata operativa</span>
+      <h3>La parte más concreta y monetizable. <em>P&amp;L positivo</em> desde temprano.</h3>
+    </div>
+    <p class="sh-motor-lead">
+      La Patagonia ofrece aislamiento real —algo que Bodh Gaya o Bali no pueden replicar. Aire,
+      paisaje y silencio son insumos del producto y la geografía los provee a costo cero.
+      Hermitages, centros medianos y un centro mayor cubren todo el espectro.
+    </p>
+    <div class="sh-motor-grid">
+      <div class="sh-motor-item"><div class="num">Tipología 01</div><h5>Hermitage</h5><p>Cabañas individuales. Retiro solitario de 7 a 90 días. Modelo Plum Village, Tushita.</p></div>
+      <div class="sh-motor-item"><div class="num">Tipología 02</div><h5>Centro mediano</h5><p>20 a 50 personas. Alquilable a maestros internacionales que traen sus alumnos.</p></div>
+      <div class="sh-motor-item"><div class="num">Tipología 03</div><h5>Centro mayor</h5><p>Hasta 200 personas. Cursos Vipassana, retiros corporativos, conferencias.</p></div>
+      <div class="sh-motor-item"><div class="num">Clientes</div><h5>Quién paga</h5><p>Maestros y sanghas internacionales, empresas tech LATAM (offsites), salud mental y convenios académicos.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MOTOR 04 -->
+<section class="sh-section">
+  <div class="sh-eyebrow">Motor 04 · Industria de merchandise</div>
+  <h2 class="sh-h2">Productores serios de objetos rituales budistas en las Américas hoy: <em>cero</em>.</h2>
+  <div class="sh-motor-block">
+    <div class="sh-motor-head">
+      <span class="sh-motor-tag">Esquel exportadora</span>
+      <h3>Decenas de millones de practicantes. Toda la oferta <em>importada</em> pieza a pieza desde Asia.</h3>
+    </div>
+    <p class="sh-motor-lead">
+      Malas, thangkas, estatuas, campanas y dorjes, banderas de oración, incienso, almohadones,
+      materiales de altar. Esquel deja de ser solo destino y pasa a ser <strong>capital
+      exportadora</strong>.
+    </p>
+    <div class="sh-motor-grid">
+      <div class="sh-motor-item"><div class="num">01</div><h5>Oficios patagónicos</h5><p>Tradición de telar, cuero, madera, cerámica y metalistería. Mano de obra lista para formación.</p></div>
+      <div class="sh-motor-item"><div class="num">02</div><h5>Linaje y consagración</h5><p>Los templos consagran piezas en ceremonia con linaje verificable. Algo que Amazon no puede ofrecer.</p></div>
+      <div class="sh-motor-item"><div class="num">03</div><h5>Logística hacia Américas</h5><p>Vuelos directos a EE.UU., comercio Mercosur, e-commerce. Tiempos y aranceles inferiores a importar de Asia.</p></div>
+      <div class="sh-motor-item"><div class="num">04</div><h5>Cadena en Esquel</h5><p>Taller-escuela → producción en cooperativas regionales → distribución B2B y e-commerce a centros budistas.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MOTOR 05 -->
+<section class="sh-section">
+  <div class="sh-eyebrow">Motor 05 · Coalición Patagónica</div>
+  <h2 class="sh-h2">El visitante del polo es <em>el cliente target perfecto</em> para las marcas patagónicas.</h2>
+  <div class="sh-motor-block">
+    <div class="sh-motor-head">
+      <span class="sh-motor-tag">Vidriera regional</span>
+      <h3>Alto poder adquisitivo, sensibilidad por la identidad regional, <em>permanencia larga</em>.</h3>
+    </div>
+    <p class="sh-motor-lead">
+      Marcas naturales: Rapanui, Cardón, Pampa, Pasiones Argentinas (textil); Cerveza Patagonia,
+      Familia Schroeder, Bodega Otronia (gastronomía); Wuelai y cosmética natural local. No solo
+      traemos turismo a Esquel: <strong>canalizamos consumo a toda la economía patagónica</strong>.
+    </p>
+    <div class="sh-motor-grid">
+      <div class="sh-motor-item"><div class="num">Nivel 01</div><h5>Tiendas en el anillo</h5><p>Espacios físicos curados en la feria del polo. Locación más revenue share. Marcas seleccionadas, no un mall.</p></div>
+      <div class="sh-motor-item"><div class="num">Nivel 02</div><h5>Producto de retiro co-branded</h5><p>Kits curados (té, mate, abrigo, cuaderno, productos de meditación) producidos por la marca con co-branding del polo.</p></div>
+      <div class="sh-motor-item"><div class="num">Nivel 03</div><h5>Socios Fundadores</h5><p>Una o dos marcas top financian infraestructura del anillo. Naming rights moderado y exclusividad de categoría.</p></div>
+      <div class="sh-motor-item"><div class="num">Foco</div><h5>Cero exclusividad de partida</h5><p>Una escalera comercial, no un contrato cerrado. Las marcas eligen el nivel que les funciona.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 · MODELO ECONÓMICO -->
+<section class="sh-section">
+  <div class="sh-eyebrow">05 · Modelo económico</div>
+  <h2 class="sh-h2">Quién paga, quién opera, qué necesitamos del municipio. <em>Sin ambigüedades</em>.</h2>
+
+  <div class="sh-table">
+    <div class="sh-row head">
+      <div>Actor</div><div>Aporta</div><div style="text-align:right">Costo al municipio</div>
+    </div>
+    <div class="sh-row">
+      <div class="a">Escuelas budistas internacionales<span>Templos, universidades, partners tech asiáticos</span></div>
+      <div class="b">Construcción de templos, financiamiento del Centro de Estudios y Kalachakra Lab, residencias técnicas, partners de investigación.</div>
+      <div class="c">Cero</div>
+    </div>
+    <div class="sh-row">
+      <div class="a">Fundación Conecta<span>Radicada y tributando en Esquel</span></div>
+      <div class="b">Fundraising internacional, gestión, operación del polo, programa comunitario, retiros y red de partners cripto/IA.</div>
+      <div class="c">Cero</div>
+    </div>
+    <div class="sh-row">
+      <div class="a">Ecosistema privado local<span>Hotelería, gastronomía, artesanos, marcas patagónicas</span></div>
+      <div class="b">Servicios al visitante, producción y exportación de merchandise, partnerships de Coalición Patagónica.</div>
+      <div class="c">Cero</div>
+    </div>
+    <div class="sh-row">
+      <div class="a">Municipio de Esquel<span>Lo que pedimos</span></div>
+      <div class="b">Acceso a terrenos · Marco de exenciones impositivas · Respaldo institucional al fundraising.</div>
+      <div class="c warn">Mínimo · sin caja</div>
+    </div>
+  </div>
+</section>
+
+<!-- EL PEDIDO -->
+<section class="sh-section">
+  <div class="sh-eyebrow">05 · El pedido al municipio</div>
+  <h2 class="sh-h2">Tres cosas concretas. <em>Ninguna implica caja</em>.</h2>
+  <div class="sh-asks">
+    <article class="sh-ask">
+      <div class="n">01</div>
+      <h4>Acceso a terrenos</h4>
+      <p>Donación, cesión en comodato o venta facilitada de terrenos fiscales hoy improductivos en las cercanías de la ciudad.</p>
+    </article>
+    <article class="sh-ask">
+      <div class="n">02</div>
+      <h4>Marco de exenciones impositivas</h4>
+      <p>Tasas, habilitaciones y derechos, en línea con el tratamiento que reciben otros proyectos de desarrollo turístico estratégico.</p>
+    </article>
+    <article class="sh-ask">
+      <div class="n">03</div>
+      <h4>Respaldo institucional al fundraising</h4>
+      <p>Que el municipio aparezca como socio institucional ante las escuelas budistas internacionales. Sin costo: acelera la inversión externa.</p>
+    </article>
+  </div>
+</section>
+
+<!-- RIESGO -->
+<section class="sh-section">
+  <div class="sh-eyebrow">06 · Evaluación de riesgo</div>
+  <h2 class="sh-h2">Piso bajo. <em>Techo enorme</em>.</h2>
+  <div class="sh-risk">
+    <article class="sh-risk-card no">
+      <div class="t">Si no funciona</div>
+      <h4>Costo mínimo</h4>
+      <p>Los terrenos —probablemente improductivos hoy— siguen ahí. No hubo inversión pública significativa. No hay deuda ni obras municipales abandonadas.</p>
+      <div class="sh-risk-stats">
+        <div><div class="k">Inversión municipal</div><div class="v">≈ 0</div></div>
+        <div><div class="k">Deuda generada</div><div class="v">≈ 0</div></div>
+      </div>
+    </article>
+    <article class="sh-risk-card yes">
+      <div class="t">Si funciona</div>
+      <h4>Marca continental</h4>
+      <p>Esquel se convierte en el primer polo de peregrinaje espiritual de Sudamérica. Una posición de mercado que no tiene vuelta atrás: el primero se queda con la marca.</p>
+      <div class="sh-risk-stats">
+        <div><div class="k">Posición</div><div class="v">First mover</div></div>
+        <div><div class="k">Horizonte</div><div class="v">Décadas</div></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- PARA ESQUEL -->
+<section class="sh-section">
+  <div class="sh-eyebrow">06 · Para Esquel</div>
+  <h2 class="sh-h2">No solo para extranjeros. <em>Algo concreto</em> que le devolvemos a su gente.</h2>
+  <p class="sh-intro">
+    En Asia, los templos siempre fueron centros comunitarios. El polo replica esa función: empleo
+    calificado local y programas abiertos para vecinos y vecinas de Esquel.
+  </p>
+  <div class="sh-comm">
+    <article class="sh-comm-card">
+      <div class="sh-comm-tag">Programa</div>
+      <h4>Empleo calificado local</h4>
+      <p>Talleres del Lab y de la industria de merchandise capacitan artesanos, técnicos y desarrolladores en Esquel y la región.</p>
+    </article>
+    <article class="sh-comm-card">
+      <div class="sh-comm-tag">Programa</div>
+      <h4>Yoga y mindfulness</h4>
+      <p>Clases regulares para la comunidad, dictadas por maestros del polo. Tarifas bonificadas para residentes.</p>
+    </article>
+    <article class="sh-comm-card">
+      <div class="sh-comm-tag">Programa</div>
+      <h4>Bienestar y salud mental</h4>
+      <p>Grupos de meditación, escucha y apoyo emocional comunitario, en convenio con hospitales locales.</p>
+    </article>
+  </div>
+
+  <!-- 1000 puestos -->
+  <div class="sh-bignum" style="margin-top:32px">
+    <div class="sh-bignum-k">Empleo directo · operación plena</div>
+    <div class="sh-bignum-v">1.000</div>
+    <div class="sh-bignum-l">nuevos puestos de trabajo directos para Esquel</div>
+    <p class="sh-bignum-p">
+      Más 300 puestos en fase de construcción. Estimación basada en operación plena de los cinco
+      motores: templos, Centro de Estudios, Lab, Centros de Retiro, taller-escuela e industria de
+      merchandise, anillo de servicios y Coalición Patagónica.
+    </p>
+  </div>
+</section>
+
+<!-- CRONOGRAMA -->
+<section class="sh-section">
+  <div class="sh-eyebrow">06 · Cronograma</div>
+  <h2 class="sh-h2">Fase 1 operativa en <em>18 a 24 meses</em>.</h2>
+  <p class="sh-intro">A partir de ahí, el crecimiento es orgánico: cada nueva escuela que se suma agrega una razón nueva para visitar.</p>
+  <div class="sh-timeline">
+    <article class="sh-phase">
+      <div class="sh-phase-when">Mes 0 — 6</div>
+      <h4>Acuerdos y permisos</h4>
+      <p>Convenio municipal, MoUs con escuelas budistas piloto, master plan urbano.</p>
+    </article>
+    <article class="sh-phase">
+      <div class="sh-phase-when">Mes 6 — 18</div>
+      <h4>Construcción Fase 1</h4>
+      <p>Primer templo, plaza central, infraestructura de servicios, feria artesanal.</p>
+    </article>
+    <article class="sh-phase">
+      <div class="sh-phase-when">Mes 18 — 24</div>
+      <h4>Apertura</h4>
+      <p>Inauguración con ceremonia internacional. Lanzamiento mediático global.</p>
+    </article>
+    <article class="sh-phase">
+      <div class="sh-phase-when">Año 2 +</div>
+      <h4>Crecimiento orgánico</h4>
+      <p>Suma progresiva de templos. Programa comunitario en marcha. Marca consolidada.</p>
+    </article>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="sh-close">
+  <div class="sh-close-inner">
+    <div class="k">La pregunta final</div>
+    <h2>
+      La pregunta no es si funciona. La pregunta no es si es ambicioso.<br>
+      La pregunta es si Esquel quiere ser <em>Shambhala Patagonia</em>.
+    </h2>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px">
+      <a href="index.html#participar" class="btn-primary" style="text-decoration:none;display:inline-block">Conversemos</a>
+      <a href="mailto:fundacion@conecta.fund" class="btn-ghost" style="text-decoration:none;display:inline-block">fundacion@conecta.fund</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer-root"></div>
+
+<script type="text/babel" src="src/Base.jsx"></script>
+<script type="text/babel" src="src/extras.jsx"></script>
+<script type="text/babel">
+  ReactDOM.createRoot(document.getElementById('footer-root')).render(<FooterExt />);
+</script>
+
+</body>
+</html>
