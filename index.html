@@ -103,8 +103,6 @@ function App() {
         </div>
       </section>
 
-      <Allies />
-
       <Voices />
 
       <Participate />
@@ -117,7 +115,11 @@ function App() {
         primary="Donar ahora"
         secondary="Quiero ser voluntario/a"
         onPrimary={() => jump('participar')}
-        onSecondary={() => jump('participar')}
+        onSecondary={() => {
+          window.location.href = 'mailto:fundacion@conecta.fund?subject=' +
+            encodeURIComponent('Quiero ser voluntario/a') +
+            '&body=' + encodeURIComponent('Hola, me gustaría sumarme como voluntario/a a la Fundación Conecta.');
+        }}
       />
 
       <FooterExt />

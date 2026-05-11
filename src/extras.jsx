@@ -232,7 +232,14 @@ function Newsletter() {
           <h3>Una vez por mes, sin relleno.</h3>
           <p>Te avisamos cuando publicamos una guía nueva, abrimos inscripción a un taller o pasa algo grande en IA en Argentina. Nada de marketing.</p>
         </div>
-        <form className="news-form" onSubmit={e => { e.preventDefault(); if (email) setSent(true); }}>
+        <form className="news-form" onSubmit={e => {
+          e.preventDefault();
+          if (!email) return;
+          const subject = encodeURIComponent('Suscripción al newsletter');
+          const body = encodeURIComponent(`Hola, quiero suscribirme al newsletter.\n\nMi correo: ${email}`);
+          window.location.href = `mailto:fundacion@conecta.fund?subject=${subject}&body=${body}`;
+          setSent(true);
+        }}>
           {sent ? (
             <div style={{ fontFamily: 'var(--font-sans)', fontSize: '.95rem', fontWeight: 700, color: 'var(--teal)' }}>
               ✓ Listo. Te escribimos a {email}.
@@ -240,7 +247,7 @@ function Newsletter() {
           ) : (
             <>
               <input
-                type="email" required placeholder="tu@correo.com"
+                type="email" required placeholder="fundacion@conecta.fund"
                 className="news-input"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
