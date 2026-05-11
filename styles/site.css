@@ -1,0 +1,88 @@
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-sans)}
+
+/* Header */
+.ih{position:sticky;top:0;z-index:50;background:rgba(253,252,248,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.ih-brand{display:flex;align-items:center;gap:10px;font-family:var(--font-sans);font-size:.95rem;color:var(--ink);text-decoration:none}
+.ih-brand strong{color:var(--accent)}
+.ih-mark{display:inline-grid;place-items:center;width:30px;height:30px;background:var(--ink);color:white;border-radius:6px;font-family:var(--font-sans);font-weight:800;font-size:.72rem;letter-spacing:.04em}
+.ih-nav{display:flex;gap:6px}
+.ih-nav a{font-family:var(--font-sans);font-size:.78rem;font-weight:700;color:var(--ink2);text-decoration:none;padding:6px 12px;border-radius:100px;transition:all .15s}
+.ih-nav a:hover{color:var(--accent);background:var(--paper2)}
+.ih-nav a.is-active{background:var(--ink);color:white}
+.ih-cta{font-family:var(--font-sans);font-size:.78rem;font-weight:800;text-decoration:none;background:var(--accent);color:white;padding:8px 16px;border-radius:100px;transition:transform .15s}
+.ih-cta:hover{transform:translateY(-1px)}
+
+/* Hero */
+.ihero{background:var(--ink);color:white;padding:88px 32px 96px;position:relative;overflow:hidden}
+.ihero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 90% 30%,rgba(201,61,27,.22),transparent 60%),radial-gradient(ellipse 40% 60% at 0% 100%,rgba(26,122,106,.16),transparent 55%)}
+.ihero-inner{max-width:780px;margin:0 auto;position:relative}
+.ihero-kicker{font-family:var(--font-sans);font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.ihero-kicker > span:empty:first-child{display:inline-block;width:22px;height:2px;background:var(--accent2);border-radius:1px}
+.ihero h1{font-family:var(--font-serif);font-size:clamp(2.4rem,5.4vw,3.6rem);font-weight:700;line-height:1.13;letter-spacing:-.02em;margin:0 0 22px}
+.ihero h1 em{font-style:italic;color:#FBBF7A}
+.ihero-lead{font-family:var(--font-serif);font-size:1.12rem;color:rgba(255,255,255,.78);max-width:580px;line-height:1.7;margin:0 0 32px}
+.ihero-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+.btn-primary{font-family:var(--font-sans);font-size:.85rem;font-weight:800;background:var(--accent);color:white;border:0;padding:13px 22px;border-radius:100px;cursor:pointer;transition:transform .15s}
+.btn-primary:hover{transform:translateY(-1px)}
+.btn-ghost{font-family:var(--font-sans);font-size:.85rem;font-weight:800;background:transparent;color:white;border:1.5px solid rgba(255,255,255,.3);padding:11px 22px;border-radius:100px;cursor:pointer}
+.btn-ghost:hover{border-color:white}
+.btn-ghost-light{font-family:var(--font-sans);font-size:.85rem;font-weight:800;background:transparent;color:var(--ink);border:1.5px solid var(--border);padding:11px 22px;border-radius:100px;cursor:pointer}
+.btn-ghost-light:hover{border-color:var(--accent);color:var(--accent)}
+
+/* Mission strip */
+.mission{max-width:1080px;margin:-48px auto 0;padding:0 32px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative;z-index:5}
+.mission-card{background:white;border:1px solid var(--border);border-radius:12px;padding:22px 24px;box-shadow:0 4px 24px rgba(26,26,46,.06)}
+.mission-k{font-family:var(--font-sans);font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.mission-card p{font-family:var(--font-serif);font-size:1.08rem;color:var(--ink);line-height:1.5;margin:0}
+
+/* Programs */
+.section{max-width:1080px;margin:96px auto 0;padding:0 32px}
+.section-h{font-family:var(--font-sans);font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.section-h::before{content:'';width:22px;height:2px;background:var(--accent);border-radius:1px}
+.section-t{font-family:var(--font-serif);font-size:2.2rem;font-weight:700;letter-spacing:-.015em;color:var(--ink);margin:0 0 36px;line-height:1.2}
+.section-t em{font-style:italic;color:var(--accent)}
+
+.programs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.program{background:white;border:1px solid var(--border);border-radius:12px;padding:24px 26px;display:flex;flex-direction:column;gap:10px;transition:all .2s}
+.program:hover{border-color:var(--accent);box-shadow:0 4px 14px rgba(201,61,27,.08)}
+.program.is-featured{background:var(--paper2);border:1.5px solid var(--accent)}
+.program-tag{font-family:var(--font-sans);font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);align-self:flex-start;padding:3px 10px;background:rgba(201,61,27,.08);border-radius:100px}
+.program h3{font-family:var(--font-serif);font-size:1.35rem;font-weight:700;color:var(--ink);margin:4px 0;line-height:1.25}
+.program p{font-family:var(--font-serif);font-size:.95rem;color:var(--ink2);line-height:1.6;margin:0;flex:1}
+.program-cta{font-family:var(--font-sans);font-size:.78rem;font-weight:800;color:var(--accent);background:transparent;border:0;padding:0;text-align:left;cursor:pointer;align-self:flex-start;margin-top:8px}
+.program-cta:hover{text-decoration:underline}
+
+/* Impact */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;background:var(--ink);color:white;padding:56px 48px;border-radius:16px;margin-top:36px}
+.stat{display:flex;flex-direction:column;gap:6px}
+.stat-v{font-family:var(--font-serif);font-size:3rem;font-weight:700;color:white;line-height:1;letter-spacing:-.02em}
+.stat-v span{color:var(--accent2);font-style:italic;margin-left:2px}
+.stat-l{font-family:var(--font-sans);font-size:.78rem;font-weight:700;color:rgba(255,255,255,.65);letter-spacing:.02em}
+
+/* CTA banner */
+.cta{margin:96px 0 0;padding:0 32px}
+.cta-inner{max-width:1080px;margin:0 auto;background:linear-gradient(135deg,#C93D1B,#A02E12);color:white;border-radius:16px;padding:64px 56px;text-align:center}
+.cta h3{font-family:var(--font-serif);font-size:2.1rem;font-weight:700;letter-spacing:-.015em;margin:0 0 12px;line-height:1.2}
+.cta p{font-family:var(--font-serif);font-size:1.05rem;color:rgba(255,255,255,.85);max-width:520px;margin:0 auto 28px;line-height:1.6}
+.cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta .btn-primary{background:white;color:var(--accent)}
+.cta .btn-ghost-light{color:white;border-color:rgba(255,255,255,.4)}
+.cta .btn-ghost-light:hover{border-color:white;color:white}
+
+/* Footer */
+.ifoot{background:var(--ink);color:rgba(255,255,255,.6);margin-top:96px;padding:64px 32px 28px}
+.ifoot-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:48px}
+.ifoot-brand{display:flex;align-items:center;gap:10px;color:white;font-family:var(--font-sans);margin-bottom:12px}
+.ifoot-brand strong{color:var(--accent2)}
+.ifoot p{font-family:var(--font-sans);font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.6;margin:0;max-width:280px}
+.ifoot-h{font-family:var(--font-sans);font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:white;margin-bottom:14px}
+.ifoot a{display:block;font-family:var(--font-sans);font-size:.85rem;color:rgba(255,255,255,.6);text-decoration:none;padding:4px 0;transition:color .15s}
+.ifoot a:hover{color:var(--accent2)}
+.ifoot-rule{max-width:1080px;margin:48px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-family:var(--font-sans);font-size:.74rem;color:rgba(255,255,255,.4)}
+
+@media(max-width:780px){
+  .mission,.programs,.stats,.ifoot-inner{grid-template-columns:1fr}
+  .ih-nav{display:none}
+}

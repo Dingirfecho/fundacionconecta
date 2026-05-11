@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fundación Conecta · Alfabetización digital para la Argentina</title>
+<meta name="description" content="Fundación Conecta produce guías, talleres y acompañamiento para que más personas en Argentina puedan usar la tecnología con criterio, autonomía y bienestar.">
+<meta property="og:title" content="Fundación Conecta">
+<meta property="og:description" content="Tendemos puentes hacia la alfabetización digital en Argentina.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/logo-mark-square.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+<link rel="stylesheet" href="styles/extra.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" src="src/Base.jsx"></script>
+<script type="text/babel" src="src/extras.jsx"></script>
+
+<script type="text/babel">
+function App() {
+  const [active, setActive] = React.useState('top');
+
+  // Scrollspy: activa el link cuyo target esté entrando en viewport
+  React.useEffect(() => {
+    const ids = ['manifiesto', 'programas', 'participar'];
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) setActive(en.target.id);
+      });
+    }, { rootMargin: '-40% 0px -50% 0px' });
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) obs.observe(el);
+    });
+    return () => obs.disconnect();
+  }, []);
+
+  // Reveal-on-scroll para .reveal
+  React.useEffect(() => {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          en.target.classList.add('is-in');
+          obs.unobserve(en.target);
+        }
+      });
+    }, { rootMargin: '-10% 0px -5% 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
+
+  const jump = id => {
+    setActive(id);
+    if (id === 'top') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  return (
+    <>
+      <ProgressBar />
+      <HeaderExt active={active} onJump={jump} />
+
+      <Hero
+        onPrimary={() => jump('programas')}
+        onSecondary={() => jump('participar')}
+      />
+
+      <MissionStrip />
+
+      <Manifest />
+
+      <section className="section" id="programas">
+        <div className="section-h">Programas activos</div>
+        <h2 className="section-t">Trabajamos en tres frentes que <em>se refuerzan entre sí</em>.</h2>
+        <div className="programs">
+          <ProgramCard
+            featured tag="Insignia"
+            title="Introducción a la IA · 2026"
+            body="Una guía pública con ejercicios prácticos y casos argentinos para que cualquiera pueda entender y usar la IA con criterio."
+            action="Leer la misión"
+            onAction={() => { window.location.href = 'mision.html'; }}
+          />
+          <ProgramCard
+            tag="Territorio"
+            title="Shambhala Patagonia"
+            body="Residencias de formación y retiro en la Patagonia: encuentros presenciales donde se combinan alfabetización digital, oficios y prácticas comunitarias."
+            action="Conocer más"
+            onAction={() => {}}
+          />
+          <ProgramCard
+            tag="Publicación"
+            title="Informe mensual de Alfabetización Digital"
+            body="Cada mes publicamos un informe abierto con el estado de la alfabetización digital en Argentina: datos, casos y lo que cambió."
+            action="Leer el último"
+            onAction={() => {}}
+          />
+        </div>
+      </section>
+
+      <Allies />
+
+      <Voices />
+
+      <Participate />
+
+      <Newsletter />
+
+      <CTABanner
+        title="Sumate al puente."
+        body="Donaciones, voluntariado, alianzas: hay muchas formas de acercar la tecnología a más gente."
+        primary="Donar ahora"
+        secondary="Quiero ser voluntario/a"
+        onPrimary={() => jump('participar')}
+        onSecondary={() => jump('participar')}
+      />
+
+      <FooterExt />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

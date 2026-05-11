@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <rect width="120" height="120" rx="24" fill="#1A1A2E"></rect>
+  <text x="60" y="78" text-anchor="middle" font-family="Nunito, system-ui, sans-serif" font-weight="800" font-size="56" fill="#C93D1B" letter-spacing="-2">FC</text>
+  <circle cx="92" cy="32" r="6" fill="#F0A500"></circle>
+</svg>

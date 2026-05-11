@@ -1,0 +1,127 @@
+/* ============================================================
+   Extras — secciones nuevas: Manifiesto, Recursos, Voces,
+   Equipo, Participar, Newsletter
+   ============================================================ */
+
+/* Section divider variants — un patrón uniforme con tweaks */
+.section--paper2 { background:var(--paper2); padding-top:80px; padding-bottom:80px; max-width:none; margin:96px 0 0; }
+.section--paper2 .section-inner { max-width:1080px; margin:0 auto; padding:0 32px; }
+
+/* ============================================================
+   Manifiesto / editorial pullquote
+   ============================================================ */
+.manifest{display:grid;grid-template-columns:1fr 1.4fr;gap:56px;align-items:start}
+.manifest-side .kicker-line{font-family:var(--font-sans);font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.manifest-side .kicker-line::before{content:'';width:22px;height:2px;background:var(--accent);border-radius:1px}
+.manifest-side h2{margin-top:0}
+.manifest-body p{font-family:var(--font-serif);font-size:1.05rem;line-height:1.78;color:var(--ink2);margin:0 0 16px}
+.manifest-body p strong{color:var(--ink)}
+.manifest-pq{margin:24px 0 0;border-left:4px solid var(--accent);padding:8px 22px;background:transparent}
+.manifest-pq p{font-family:var(--font-serif);font-style:italic;font-size:1.18rem;color:var(--ink);line-height:1.55;margin:0}
+.manifest-pq cite{display:block;margin-top:10px;font-style:normal;font-family:var(--font-sans);font-size:.78rem;font-weight:700;letter-spacing:.04em;color:var(--ink3);text-transform:uppercase}
+
+/* ============================================================
+   Recursos públicos (cards estilo "tool" del DS)
+   ============================================================ */
+.resources{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.res{background:white;border:1.5px solid var(--border);border-radius:12px;padding:22px 24px;display:grid;grid-template-columns:auto 1fr;gap:18px;text-decoration:none;color:inherit;transition:all .2s}
+.res:hover{border-color:var(--accent);box-shadow:0 4px 14px rgba(201,61,27,.08);transform:translateY(-1px)}
+.res-icon{width:46px;height:46px;background:var(--paper2);border-radius:10px;display:grid;place-items:center;font-size:1.3rem}
+.res-body .res-tag{font-family:var(--font-sans);font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.res-body .res-tag .dot{width:5px;height:5px;border-radius:50%;background:var(--ink3)}
+.res-body .res-tag.is-new .dot{background:var(--accent)}
+.res-body .res-tag.is-new{color:var(--accent)}
+.res-body h4{font-family:var(--font-serif);font-size:1.18rem;font-weight:700;color:var(--ink);margin:2px 0 4px;line-height:1.25;letter-spacing:-.005em}
+.res-body p{font-family:var(--font-serif);font-size:.92rem;color:var(--ink2);margin:0 0 10px;line-height:1.55}
+.res-body .res-meta{font-family:var(--font-sans);font-size:.74rem;color:var(--ink3);font-weight:700}
+.res-body .res-meta .sep{margin:0 8px;color:var(--paper3)}
+
+/* ============================================================
+   Voces (testimonios)
+   ============================================================ */
+.voices{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.voice{background:white;border:1px solid var(--border);border-radius:12px;padding:24px 26px;display:flex;flex-direction:column;gap:14px}
+.voice-q{font-family:var(--font-serif);font-size:1.05rem;font-style:italic;color:var(--ink);line-height:1.55;margin:0;flex:1}
+.voice-q::before{content:'"';font-family:var(--font-serif);font-size:2.6rem;color:var(--accent);line-height:0;vertical-align:-.2em;margin-right:2px;font-style:normal}
+.voice-meta{display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid var(--border)}
+.voice-avatar{width:38px;height:38px;border-radius:50%;background:var(--paper2);color:var(--ink);font-family:var(--font-sans);font-weight:800;font-size:.78rem;display:grid;place-items:center;letter-spacing:.04em;border:1px solid var(--border)}
+.voice-name{font-family:var(--font-sans);font-size:.85rem;font-weight:800;color:var(--ink);line-height:1.2}
+.voice-where{font-family:var(--font-sans);font-size:.74rem;color:var(--ink3);margin-top:2px}
+
+/* ============================================================
+   Equipo
+   ============================================================ */
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.member{background:white;border:1px solid var(--border);border-radius:12px;padding:20px 22px}
+.member-portrait{width:64px;height:64px;border-radius:50%;background:var(--paper2);display:grid;place-items:center;font-family:var(--font-serif);font-weight:700;font-size:1.4rem;color:var(--accent);margin-bottom:12px;border:1px solid var(--border)}
+.member-name{font-family:var(--font-serif);font-size:1.1rem;font-weight:700;color:var(--ink);line-height:1.25;margin:0 0 2px}
+.member-role{font-family:var(--font-sans);font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.member-bio{font-family:var(--font-serif);font-size:.88rem;color:var(--ink2);line-height:1.55;margin:0}
+
+/* ============================================================
+   Participar (3-way grid)
+   ============================================================ */
+.participate{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.part{background:white;border:1px solid var(--border);border-radius:12px;padding:28px 28px;display:flex;flex-direction:column;gap:8px;transition:all .2s}
+.part:hover{border-color:var(--accent);box-shadow:0 4px 14px rgba(201,61,27,.08)}
+.part-num{font-family:var(--font-serif);font-style:italic;font-size:2.2rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:6px;letter-spacing:-.02em}
+.part h4{font-family:var(--font-serif);font-size:1.25rem;font-weight:700;color:var(--ink);margin:0 0 4px;letter-spacing:-.005em}
+.part p{font-family:var(--font-serif);font-size:.94rem;color:var(--ink2);line-height:1.6;margin:0 0 14px;flex:1}
+.part-cta{font-family:var(--font-sans);font-size:.78rem;font-weight:800;color:var(--accent);background:transparent;border:0;padding:0;text-align:left;cursor:pointer;align-self:flex-start}
+.part-cta:hover{text-decoration:underline}
+
+/* ============================================================
+   Newsletter (inline form, sutil)
+   ============================================================ */
+.news{margin:96px 0 0;padding:0 32px}
+.news-inner{max-width:1080px;margin:0 auto;background:var(--paper2);border:1px solid var(--border);border-radius:16px;padding:48px 56px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.news-text .kicker{margin-bottom:10px;display:block}
+.news-text h3{font-family:var(--font-serif);font-size:1.7rem;font-weight:700;color:var(--ink);margin:0 0 8px;letter-spacing:-.01em;line-height:1.2}
+.news-text p{font-family:var(--font-serif);font-size:.98rem;color:var(--ink2);margin:0;line-height:1.6}
+.news-form{display:flex;gap:8px;flex-wrap:wrap}
+.news-input{flex:1;min-width:200px;font-family:var(--font-sans);font-size:.92rem;background:white;border:1.5px solid var(--border);border-radius:100px;padding:12px 20px;color:var(--ink);outline:none;transition:border-color .15s}
+.news-input:focus{border-color:var(--accent)}
+.news-form .btn-primary{padding:13px 26px}
+.news-mini{font-family:var(--font-sans);font-size:.74rem;color:var(--ink3);margin-top:10px;line-height:1.5}
+
+/* ============================================================
+   Aliados strip — categorías sin logos falsos
+   ============================================================ */
+.allies{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:12px;background:white;overflow:hidden}
+.ally{padding:28px 22px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:6px}
+.ally:last-child{border-right:0}
+.ally-n{font-family:var(--font-serif);font-style:italic;font-weight:700;font-size:2.1rem;color:var(--accent);line-height:1;letter-spacing:-.02em}
+.ally-l{font-family:var(--font-sans);font-size:.78rem;font-weight:700;color:var(--ink2);line-height:1.4}
+
+/* ============================================================
+   Footer extras — newsletter mini in footer dropped in favour
+   of standalone section above. Make footer slightly richer.
+   ============================================================ */
+.ifoot-social{display:flex;gap:8px;margin-top:14px}
+.ifoot-social a{width:32px;height:32px;display:grid;place-items:center;border-radius:50%;background:rgba(255,255,255,.06);color:rgba(255,255,255,.7);transition:all .15s;padding:0;font-size:.82rem}
+.ifoot-social a:hover{background:var(--accent);color:white}
+
+/* ============================================================
+   Reveal-on-scroll utility (per design system)
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+.reveal.is-in{opacity:1;transform:none}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media(max-width:920px){
+  .manifest{grid-template-columns:1fr;gap:24px}
+  .resources,.voices{grid-template-columns:1fr 1fr}
+  .team{grid-template-columns:1fr 1fr}
+  .participate{grid-template-columns:1fr}
+  .news-inner{grid-template-columns:1fr;padding:36px 32px;gap:24px}
+  .allies{grid-template-columns:1fr 1fr}
+  .ally:nth-child(2){border-right:0}
+  .ally:nth-child(1),.ally:nth-child(2){border-bottom:1px solid var(--border)}
+}
+@media(max-width:620px){
+  .resources,.voices,.team,.allies{grid-template-columns:1fr}
+  .ally{border-right:0;border-bottom:1px solid var(--border)}
+  .ally:last-child{border-bottom:0}
+}

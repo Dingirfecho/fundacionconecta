@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" width="360" height="110">
+  
+  <text x="0" y="40" class="l1">Fundación</text>
+  <text x="0" y="98" class="l2">CONECTA</text>
+  <circle cx="345" cy="92" r="6" class="dot"></circle>
+</svg>

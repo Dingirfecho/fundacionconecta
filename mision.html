@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Misión · Fundación Conecta</title>
+<meta name="description" content="La misión de Fundación Conecta: tender puentes hacia la alfabetización digital en Argentina, con criterio, autonomía y bienestar.">
+<link rel="icon" href="assets/logo-mark-square.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/site.css">
+<link rel="stylesheet" href="styles/extra.css">
+<style>
+  /* Página de misión — formato editorial, ancho de lectura ~700px */
+  .mp-hero{background:var(--ink);color:white;padding:88px 32px 72px;position:relative;overflow:hidden}
+  .mp-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 90% 30%,rgba(201,61,27,.22),transparent 60%),radial-gradient(ellipse 40% 60% at 0% 100%,rgba(26,122,106,.16),transparent 55%)}
+  .mp-hero-inner{max-width:780px;margin:0 auto;position:relative}
+  .mp-back{font-family:var(--font-sans);font-size:.78rem;font-weight:700;color:rgba(255,255,255,.6);text-decoration:none;letter-spacing:.04em;display:inline-flex;align-items:center;gap:6px;margin-bottom:22px;transition:color .15s}
+  .mp-back:hover{color:var(--accent2)}
+  .mp-kicker{font-family:var(--font-sans);font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+  .mp-kicker > span:empty:first-child{display:inline-block;width:22px;height:2px;background:var(--accent2);border-radius:1px}
+  .mp-hero h1{font-family:var(--font-serif);font-size:clamp(2.4rem,5.4vw,3.6rem);font-weight:700;line-height:1.13;letter-spacing:-.02em;margin:0 0 22px;color:white}
+  .mp-hero h1 em{font-style:italic;color:#FBBF7A}
+  .mp-hero .lead{font-family:var(--font-serif);font-size:1.12rem;color:rgba(255,255,255,.78);max-width:580px;line-height:1.7;margin:0}
+
+  /* Cuerpo — single column 700px */
+  .mp-body{max-width:700px;margin:0 auto;padding:64px 32px 32px}
+  .mp-body > h2{font-family:var(--font-serif);font-size:1.85rem;font-weight:700;color:var(--ink);margin:48px 0 16px;line-height:1.22;letter-spacing:-.012em}
+  .mp-body > h2:first-child{margin-top:0}
+  .mp-body > h2 em{font-style:italic;color:var(--accent)}
+  .mp-body > h3{font-family:var(--font-sans);font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:36px 0 8px;display:flex;align-items:center;gap:10px}
+  .mp-body > h3::before{content:'';width:22px;height:2px;background:var(--accent);border-radius:1px}
+  .mp-body p{font-family:var(--font-serif);font-size:1.02rem;color:var(--ink2);line-height:1.78;margin:0 0 16px}
+  .mp-body p strong{color:var(--ink)}
+  .mp-body p em{font-style:italic;color:var(--ink)}
+
+  .mp-pq{border-left:4px solid var(--accent);margin:30px 0;padding:8px 22px;background:transparent}
+  .mp-pq p{font-family:var(--font-serif);font-style:italic;font-size:1.2rem;color:var(--ink);margin:0;line-height:1.55}
+  .mp-pq cite{display:block;margin-top:10px;font-style:normal;font-family:var(--font-sans);font-size:.75rem;font-weight:700;letter-spacing:.04em;color:var(--ink3);text-transform:uppercase}
+
+  /* Cajas tipadas del DS */
+  .mp-box{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;border-radius:10px;padding:18px 22px;margin:22px 0}
+  .mp-box.tip{background:var(--amber-bg);border:1px solid var(--amber)}
+  .mp-box.do{background:var(--teal-bg);border:1px solid var(--teal)}
+  .mp-box.info{background:var(--blue-bg);border:1px solid var(--blue)}
+  .mp-box-icon{font-size:1.4rem;line-height:1}
+  .mp-box-title{font-family:var(--font-sans);font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+  .mp-box.tip .mp-box-title{color:var(--amber-ink)}
+  .mp-box.do .mp-box-title{color:var(--teal-ink)}
+  .mp-box.info .mp-box-title{color:var(--blue-ink)}
+  .mp-box-body{font-family:var(--font-serif);font-size:.96rem;line-height:1.65;margin:0;color:var(--ink2)}
+
+  .mp-list{margin:14px 0 22px;padding-left:18px}
+  .mp-list li{font-family:var(--font-serif);font-size:1.02rem;line-height:1.7;color:var(--ink2);margin-bottom:8px}
+  .mp-list li::marker{color:var(--accent);font-weight:700}
+
+  /* Pilares — small cards row */
+  .mp-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0 8px}
+  .mp-pillar{background:var(--paper2);border:1px solid var(--border);border-radius:10px;padding:18px 20px}
+  .mp-pillar-k{font-family:var(--font-sans);font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+  .mp-pillar p{font-family:var(--font-serif);font-size:.95rem;line-height:1.55;margin:0;color:var(--ink)}
+
+  /* Foot rule */
+  .mp-end{max-width:700px;margin:48px auto 0;padding:0 32px}
+  .mp-end-rule{border-top:1px solid var(--border);padding-top:24px;font-family:var(--font-sans);font-size:.78rem;color:var(--ink3)}
+  .mp-end-rule a{color:var(--accent);font-weight:700}
+
+  @media(max-width:720px){
+    .mp-pillars{grid-template-columns:1fr}
+    .mp-body{padding:48px 22px 24px}
+    .mp-hero{padding:64px 22px 56px}
+  }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- Header estático: misma estética que el kit institucional pero links a la home -->
+<header class="ih">
+  <a href="index.html" class="ih-brand">
+    <span class="ih-mark">FC</span>
+    <span>Fundación <strong>Conecta</strong></span>
+  </a>
+  <nav class="ih-nav">
+    <a href="index.html#manifiesto">Por qué</a>
+    <a href="index.html#programas">Programas</a>
+    <a href="mision.html" class="is-active">Misión</a>
+    <a href="index.html#participar">Participar</a>
+  </nav>
+  <a href="index.html#participar" class="ih-cta">Sumate</a>
+</header>
+
+<section class="mp-hero">
+  <div class="mp-hero-inner">
+    <a href="index.html" class="mp-back">← Volver al sitio</a>
+    <div class="mp-kicker"><span></span> Misión · Documento público</div>
+    <h1>Que la tecnología llegue <em>donde no llega</em>.</h1>
+    <p class="lead">
+      Por qué existe Fundación Conecta, qué hacemos y cómo lo hacemos.
+      Este documento es público y se actualiza cuando cambia algo importante.
+    </p>
+  </div>
+</section>
+
+<article class="mp-body">
+
+  <h2>El problema que tenemos delante</h2>
+  <p>
+    En Argentina conviven dos países digitales. En uno hay laboratorios del CONICET entrenando modelos
+    propios, equipos de Mercado Pago moviendo miles de millones por minuto, ingenieras que escriben
+    código con asistentes de IA y tenían 22 años en 2023.
+  </p>
+  <p>
+    En el otro hay <strong>casi 8 millones de personas adultas</strong> que nunca usaron una hoja de
+    cálculo, una rotisería en Villa Urquiza que pierde clientes porque no contesta WhatsApp,
+    una maestra de séptimo en Junín que arma todas las planificaciones a mano y un jubilado en
+    Caballito al que le sacaron $480.000 con una estafa por SMS.
+  </p>
+  <p>
+    La distancia entre los dos países <em>no es de hardware</em>. Casi todos tienen un celular
+    suficientemente bueno. La distancia es de criterio, de tiempo y de a quién preguntarle.
+  </p>
+
+  <div class="mp-pq">
+    <p>Lo que antes llevaba un equipo entero, hoy lo hace una persona con criterio. Queremos que esa persona pueda ser cualquiera.</p>
+    <cite>— Equipo Conecta</cite>
+  </div>
+
+  <h2>Nuestra misión</h2>
+  <p>
+    <strong>Acortar la distancia entre las dos Argentinas digitales</strong>, produciendo material
+    educativo libre, gratuito y específicamente argentino, y acompañando con talleres presenciales
+    a quienes no pueden hacerlo solos.
+  </p>
+  <p>
+    No reemplazamos a la escuela ni al Estado. Trabajamos con escuelas, centros barriales,
+    cooperativas y municipios que <em>ya están en el barrio</em>, y les damos lo que les falta:
+    contenido aterrizado, capacitación docente y acompañamiento.
+  </p>
+
+  <h2>Los <em>tres pilares</em></h2>
+  <div class="mp-pillars">
+    <div class="mp-pillar">
+      <div class="mp-pillar-k">Acceso</div>
+      <p>Que la tecnología llegue donde no llega: barrios, pueblos, oficios.</p>
+    </div>
+    <div class="mp-pillar">
+      <div class="mp-pillar-k">Criterio</div>
+      <p>Aprender a distinguir, decidir y dudar. No usar por usar.</p>
+    </div>
+    <div class="mp-pillar">
+      <div class="mp-pillar-k">Bienestar</div>
+      <p>Una vida digital sana. Menos pantalla rota, más herramienta útil.</p>
+    </div>
+  </div>
+
+  <h2>Cómo lo hacemos</h2>
+
+  <h3>Producción editorial</h3>
+  <p>
+    Publicamos guías largas, ensayos, mini-evaluaciones y bancos de prompts. Todo lo que sale
+    es web autosuficiente y forkeable: si encontrás un error, podés abrir un issue. Si querés
+    traducirlo o adaptarlo a tu provincia, también.
+  </p>
+
+  <h3>Programas territoriales</h3>
+  <p>
+    Aulas Conectadas, Mayores en Red y PyME Conecta corren en escuelas, centros de jubilados y
+    cámaras pyme de 22 provincias. La currícula la armamos nosotros; el aula la pone la organización
+    aliada.
+  </p>
+
+  <h3>Investigación aplicada</h3>
+  <p>
+    Una vez por año publicamos el estado del arte traducido al contexto local: qué funciona,
+    qué no, qué es humo y qué cambió de verdad.
+  </p>
+
+  <div class="mp-box do">
+    <div class="mp-box-icon">✅</div>
+    <div>
+      <div class="mp-box-title">Lo que sí hacemos</div>
+      <p class="mp-box-body">
+        Material gratuito y libre · Talleres presenciales en barrio · Acompañamiento a docentes
+        · Casos argentinos concretos · Ejercicios prácticos y revisables.
+      </p>
+    </div>
+  </div>
+
+  <div class="mp-box tip">
+    <div class="mp-box-icon">⚠️</div>
+    <div>
+      <div class="mp-box-title">Lo que no hacemos</div>
+      <p class="mp-box-body">
+        Lobby político · Consultoría privada · Vender datos · Endorsement de productos
+        comerciales · Cursos pagos.
+      </p>
+    </div>
+  </div>
+
+  <h2>A quiénes <em>les hablamos</em></h2>
+  <ul class="mp-list">
+    <li>Personas adultas mayores que quieren mantenerse en contacto y no caer en estafas.</li>
+    <li>Docentes de escuelas públicas que necesitan ahorrar tiempo de planificación.</li>
+    <li>PyMEs y oficios que quieren sumar herramientas sin contratar a nadie.</li>
+    <li>Estudiantes secundarios y universitarios que quieren entender qué está pasando.</li>
+    <li>Funcionarios y funcionarias municipales que arman programas locales.</li>
+  </ul>
+
+  <h2>Cómo nos sostenemos</h2>
+  <p>
+    Donaciones individuales mensuales (la mayoría de nuestros ingresos), aportes de fundaciones
+    que comparten la mirada y convenios con municipios para programas específicos.
+    <strong>No tomamos plata</strong> de empresas que comercializan los productos sobre los que
+    enseñamos: lo decimos en el estatuto y lo decimos en cada memoria anual.
+  </p>
+
+  <div class="mp-box info">
+    <div class="mp-box-icon">📌</div>
+    <div>
+      <div class="mp-box-title">Transparencia</div>
+      <p class="mp-box-body">
+        Publicamos memoria y balance auditado todos los años. Los podés leer en la sección
+        Fundación del footer.
+      </p>
+    </div>
+  </div>
+
+  <h2>El compromiso, en una línea</h2>
+  <p>
+    <strong>Sin tecnicismos. Hecha para vos.</strong> Si alguna vez algo nuestro no se entiende,
+    es un error nuestro. Escribinos y lo arreglamos.
+  </p>
+
+</article>
+
+<div class="mp-end">
+  <div class="mp-end-rule">
+    Última revisión: marzo de 2026 · Versionado público en
+    <a href="#">github.com/fundacionconecta</a>
+  </div>
+</div>
+
+<div id="footer-root"></div>
+
+<script type="text/babel" src="src/Base.jsx"></script>
+<script type="text/babel" src="src/extras.jsx"></script>
+<script type="text/babel">
+  ReactDOM.createRoot(document.getElementById('footer-root')).render(<FooterExt />);
+</script>
+
+</body>
+</html>
