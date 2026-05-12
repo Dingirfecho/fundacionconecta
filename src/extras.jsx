@@ -269,6 +269,8 @@ function HeaderExt({ active, onJump }) {
   const links = [
     ['manifiesto', 'Por qué'],
     ['programas', 'Programas'],
+    ['cursos', 'Cursos'],
+    ['informes', 'Informes'],
     ['__page__shambhala', 'Shambhala'],
     ['__page__mision', 'Misión'],
     ['participar', 'Participar'],
@@ -339,6 +341,80 @@ function FooterExt() {
 }
 
 /* Progress strip top */
+function Cursos() {
+  const videos = [
+    { id: 'intro', tag: 'Capítulo 01', title: 'Introducción a la IA · qué es y qué no es', dur: '14:22' },
+    { id: 'prompts', tag: 'Capítulo 02', title: 'Cómo escribir prompts que funcionan', dur: '18:07' },
+    { id: 'pymes', tag: 'Capítulo 03', title: 'IA para PyMEs argentinas · 5 casos reales', dur: '22:41' },
+    { id: 'docentes', tag: 'Capítulo 04', title: 'IA en el aula · plantillas para docentes', dur: '16:55' },
+    { id: 'integraciones', tag: 'Capítulo 05', title: 'Integraciones con Make.com paso a paso', dur: '24:18' },
+    { id: 'etica', tag: 'Capítulo 06', title: 'Ética, sesgos y límites de los modelos', dur: '19:32' },
+  ];
+  return (
+    <section className="section" id="cursos">
+      <div className="section-h">Cursos abiertos</div>
+      <h2 className="section-t">Una biblioteca audiovisual <em>libre y gratuita</em>.</h2>
+      <p style={{ fontFamily: 'var(--font-serif)', fontSize: '1.02rem', color: 'var(--ink2)', maxWidth: 640, marginTop: '-22px', marginBottom: 28, lineHeight: 1.7 }}>
+        Publicamos los cursos completos en YouTube. Pensados para verse de corrido o por capítulos,
+        sin requisitos previos. Suscribite al canal para recibir los nuevos episodios.
+      </p>
+      <div className="cursos">
+        {videos.map((v, i) => (
+          <a className="curso" key={i} href="https://www.youtube.com/@FundacionConecta" target="_blank" rel="noopener noreferrer">
+            <div className="curso-thumb">
+              <div className="curso-thumb-bg" />
+              <div className="curso-play" aria-hidden="true">▶</div>
+              <div className="curso-dur">{v.dur}</div>
+            </div>
+            <div className="curso-body">
+              <div className="curso-tag">{v.tag}</div>
+              <h4>{v.title}</h4>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div style={{ marginTop: 24, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+        <a className="btn-primary" href="https://www.youtube.com/@FundacionConecta" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>Ver el canal completo</a>
+        <a className="btn-ghost" href="https://www.youtube.com/@FundacionConecta?sub_confirmation=1" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>Suscribirme</a>
+      </div>
+    </section>
+  );
+}
+
+function Informes() {
+  return (
+    <section className="section--paper2" id="informes">
+      <div className="section-inner">
+        <div className="section-h">Informe mensual</div>
+        <h2 className="section-t">Cada mes, un mapa del estado de la <em>IA en Argentina</em>.</h2>
+        <div className="informes">
+          <a className="informe-hero" href="https://dingirfecho.github.io/ia-mayo-2026/" target="_blank" rel="noopener noreferrer">
+            <div className="informe-hero-tag">★ Último publicado</div>
+            <div className="informe-hero-mes">Mayo · 2026</div>
+            <h3>El Estado de la IA · Mayo 2026</h3>
+            <p>
+              Modelos, regulación, adopción en empresas y administración pública. Datos abiertos,
+              casos verificables y lo que cambió desde el informe anterior.
+            </p>
+            <div className="informe-hero-cta">Leer el informe completo →</div>
+          </a>
+          <div className="informe-note">
+            <div className="informe-note-h">Publicación mensual</div>
+            <p>
+              Publicamos un nuevo informe el primer lunes de cada mes. Acceso libre, datos abiertos
+              y descarga sin registro.
+            </p>
+            <p>
+              Suscribite al newsletter más abajo para recibir cada edición en tu correo apenas sale.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* Progress strip top */
 function ProgressBar() {
   const [w, setW] = React.useState(0);
   React.useEffect(() => {
@@ -361,5 +437,6 @@ function ProgressBar() {
 
 Object.assign(window, {
   Manifest, Resources, Voices, Team, Allies, Participate, Newsletter,
+  Cursos, Informes,
   HeaderExt, FooterExt, ProgressBar
 });

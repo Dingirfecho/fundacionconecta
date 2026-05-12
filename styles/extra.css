@@ -102,6 +102,47 @@
 .ifoot-social a:hover{background:var(--accent);color:white}
 
 /* ============================================================
+   Cursos — biblioteca de YouTube
+   ============================================================ */
+.cursos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.curso{background:white;border:1px solid var(--border);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:all .2s}
+.curso:hover{border-color:var(--accent);box-shadow:0 4px 14px rgba(201,61,27,.1);transform:translateY(-2px)}
+.curso-thumb{position:relative;aspect-ratio:16/9;background:#1a1a1a;overflow:hidden}
+.curso-thumb-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 30% 30%,rgba(201,61,27,.35),transparent 60%),radial-gradient(ellipse 70% 70% at 80% 80%,rgba(26,122,106,.25),transparent 60%),#1a1a1a}
+.curso-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.95);color:var(--accent);display:grid;place-items:center;font-size:1.3rem;padding-left:4px;transition:transform .2s}
+.curso:hover .curso-play{transform:translate(-50%,-50%) scale(1.08);background:var(--accent);color:white}
+.curso-dur{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.78);color:white;font-family:var(--font-sans);font-size:.72rem;font-weight:700;padding:3px 8px;border-radius:4px;letter-spacing:.02em}
+.curso-body{padding:18px 20px 22px;flex:1;display:flex;flex-direction:column;gap:6px}
+.curso-tag{font-family:var(--font-sans);font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.curso-body h4{font-family:var(--font-serif);font-size:1.08rem;font-weight:700;color:var(--ink);margin:2px 0 0;line-height:1.3;letter-spacing:-.005em}
+
+/* ============================================================
+   Informes mensuales
+   ============================================================ */
+.informes{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:start}
+.informe-hero{background:var(--ink);color:white;border-radius:14px;padding:40px 44px;text-decoration:none;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden;transition:transform .2s}
+.informe-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 100% 0%,rgba(201,61,27,.28),transparent 60%);pointer-events:none}
+.informe-hero:hover{transform:translateY(-2px)}
+.informe-hero > *{position:relative}
+.informe-hero-tag{font-family:var(--font-sans);font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);margin-bottom:4px}
+.informe-hero-mes{font-family:var(--font-sans);font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.informe-hero h3{font-family:var(--font-serif);font-size:1.85rem;font-weight:700;color:white;margin:4px 0 8px;line-height:1.18;letter-spacing:-.012em}
+.informe-hero p{font-family:var(--font-serif);font-size:1rem;color:rgba(255,255,255,.78);line-height:1.65;margin:0 0 14px}
+.informe-hero-cta{font-family:var(--font-sans);font-size:.86rem;font-weight:800;color:var(--accent2);margin-top:auto;letter-spacing:.02em}
+.informe-note{background:white;border:1px solid var(--border);border-radius:14px;padding:32px 32px;display:flex;flex-direction:column;gap:10px}
+.informe-note-h{font-family:var(--font-sans);font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.informe-note p{font-family:var(--font-serif);font-size:.98rem;color:var(--ink2);line-height:1.65;margin:0}
+
+@media(max-width:920px){
+  .cursos{grid-template-columns:1fr 1fr}
+  .informes{grid-template-columns:1fr;gap:18px}
+  .informe-hero{padding:32px 28px}
+}
+@media(max-width:620px){
+  .cursos{grid-template-columns:1fr}
+}
+
+/* ============================================================
    Reveal-on-scroll utility (per design system)
    ============================================================ */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}

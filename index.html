@@ -28,7 +28,7 @@ function App() {
 
   // Scrollspy: activa el link cuyo target esté entrando en viewport
   React.useEffect(() => {
-    const ids = ['manifiesto', 'programas', 'participar'];
+    const ids = ['manifiesto', 'programas', 'cursos', 'informes', 'participar'];
     const obs = new IntersectionObserver((entries) => {
       entries.forEach(en => {
         if (en.isIntersecting) setActive(en.target.id);
@@ -98,12 +98,16 @@ function App() {
             title="Informe mensual de Alfabetización Digital"
             body="Cada mes publicamos un informe abierto con el estado de la alfabetización digital en Argentina: datos, casos y lo que cambió."
             action="Leer el último"
-            onAction={() => {}}
+            onAction={() => { window.open('https://dingirfecho.github.io/ia-mayo-2026/', '_blank'); }}
           />
         </div>
       </section>
 
       <Voices />
+
+      <Cursos />
+
+      <Informes />
 
       <Participate />
 
